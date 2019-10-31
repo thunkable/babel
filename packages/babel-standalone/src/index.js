@@ -13,6 +13,7 @@
 import {
   transformFromAst as babelTransformFromAst,
   transform as babelTransform,
+  transformAsync as babelTransformAsync,
   buildExternalHelpers as babelBuildExternalHelpers,
 } from "@babel/core";
 import { all } from "./generated/plugins";
@@ -100,6 +101,10 @@ function processOptions(options) {
 
 export function transform(code: string, options: Object) {
   return babelTransform(code, processOptions(options));
+}
+
+export function transformAsync(code: string, options: Object) {
+  return babelTransformAsync(code, processOptions(options));
 }
 
 export function transformFromAst(ast: Object, code: string, options: Object) {
